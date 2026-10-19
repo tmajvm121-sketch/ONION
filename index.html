@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<title>무안현경중학교 연구학교 교수·학습 과정안</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap">
+<style>
+/* Layout: 한 화면 한 교과. 위쪽 고정 탭으로 교과를 바꾸고, 교과 안에서는 원본 과정안의 번호 순서대로 위에서 아래로 읽는다. */
+:root{
+  --bg:#f5f3f6; --surface:#ffffff; --fg:#221c25; --muted:#6b6270; --line:#ddd6e0;
+  --accent:#7b3f6a; --accent-fg:#ffffff; --soft:#efe6f0; --ring:#e6d9e8;
+  --mark:#fbf0bd; --mark-line:#e0cb74; --mark-fg:#4a3d00;
+  --serif:"Noto Serif KR","Nanum Myeongjo",serif; --sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#17131a; --surface:#221c26; --fg:#efe9f1; --muted:#a99eb0; --line:#3a3140;
+    --accent:#d9a6cc; --accent-fg:#1c1320; --soft:#33263a; --ring:#33263a;
+    --mark:#4a4018; --mark-line:#7a6a2a; --mark-fg:#f5e9b0; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17131a; --surface:#221c26; --fg:#efe9f1; --muted:#a99eb0; --line:#3a3140;
+  --accent:#d9a6cc; --accent-fg:#1c1320; --soft:#33263a; --ring:#33263a;
+  --mark:#4a4018; --mark-line:#7a6a2a; --mark-fg:#f5e9b0; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.7;word-break:keep-all;overflow-wrap:anywhere;
+  padding-block:0 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:760px;margin:0 auto}
+header.top{position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-top:16px;padding:22px 20px 20px}
+header.top::after{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;
+  background:repeating-radial-gradient(circle at center,transparent 0 12px,var(--ring) 12px 14px);pointer-events:none}
+header.top>*{position:relative;z-index:1}
+.eyebrow{font-size:13px;color:var(--muted);letter-spacing:.04em;margin:0}
+h1{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1.3;margin:6px 0 4px;text-wrap:balance}
+.sub{margin:0;color:var(--muted);font-size:14px}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);padding:12px 0 10px;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+nav.tabs button{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 2px 7px;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;line-height:1.25;min-width:0}
+nav.tabs button b{font-size:16px;font-weight:700}
+nav.tabs button span{font-size:11px;color:var(--muted);white-space:nowrap}
+nav.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+nav.tabs button[aria-selected="true"] span{color:inherit;opacity:.85}
+button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.lesson-head{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;margin-top:6px}
+.lesson-head h2.subj{font-family:var(--serif);font-size:24px;margin:0 0 10px;line-height:1.3}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0;font-size:14px}
+.meta dt{color:var(--muted)}
+.meta dd{margin:0;min-width:0}
+.jump{margin-top:14px;font:inherit;font-size:14px;font-weight:500;color:var(--accent);background:var(--soft);border:0;border-radius:999px;padding:8px 16px;cursor:pointer}
+section.sec{margin-top:30px}
+section.sec>h3{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:19px;line-height:1.35;margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+.no{flex:none;display:inline-grid;place-items:center;width:26px;height:26px;border-radius:6px;background:var(--accent);color:var(--accent-fg);font-family:var(--sans);font-size:14px;font-weight:700}
+.stack{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0}
+p.txt{margin:0;max-width:65ch}
+.card p.txt+p.txt{margin-top:10px}
+h4.sh{margin:6px 0 -2px;font-size:14px;font-weight:700;color:var(--accent)}
+.kv{display:grid;grid-template-columns:1fr;gap:0;margin:0}
+.kv>div{padding:10px 0;border-top:1px solid var(--line);min-width:0}
+.kv>div:first-child{border-top:0;padding-top:0}
+.kv>div:last-child{padding-bottom:0}
+.kv dt{font-size:13px;font-weight:700;color:var(--accent);margin:0 0 2px}
+.kv dd{margin:0}
+ul.list{margin:0;padding:0;list-style:none}
+ul.list li{position:relative;padding-left:16px}
+ul.list li+li{margin-top:4px}
+ul.list li::before{content:"";position:absolute;left:2px;top:.75em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.flow{display:flex;flex-direction:column;gap:10px}
+.row{display:grid;grid-template-columns:58px minmax(0,1fr);gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.row .no2{font-weight:700;color:var(--accent);font-size:15px;line-height:1.4}
+.row .no2 small{display:block;font-size:11px;font-weight:500;color:var(--muted)}
+.row h5{margin:0;font-size:15px;font-weight:700;line-height:1.5}
+.row p{margin:2px 0 0;font-size:14px;color:var(--fg)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:12px;color:var(--muted);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:1px 10px}
+.row.hi{background:var(--mark);border-color:var(--mark-line);color:var(--mark-fg)}
+.row.hi .no2,.row.hi .no2 small,.row.hi p{color:var(--mark-fg)}
+.row.hi .chip{background:transparent;border-color:var(--mark-line);color:var(--mark-fg)}
+.tag{display:inline-block;margin-left:6px;font-size:11px;font-weight:700;background:var(--accent);color:var(--accent-fg);border-radius:4px;padding:0 6px;vertical-align:1px}
+.step{display:grid;gap:8px}
+.step h5{margin:0;font-size:15px;font-weight:700;color:var(--accent)}
+.timebar{display:flex;gap:3px;margin:4px 0 14px}
+.timebar div{min-width:0;text-align:center;background:var(--soft);border-radius:8px;padding:6px 2px;font-size:12px;line-height:1.3;color:var(--fg)}
+.timebar div b{display:block;font-size:13px}
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.stage+.stage{margin-top:12px}
+.stage>h4{margin:0;padding:9px 16px;background:var(--accent);color:var(--accent-fg);font-size:15px;display:flex;justify-content:space-between;gap:8px}
+.srow{padding:12px 16px;border-top:1px solid var(--line)}
+.stage>h4+.srow{border-top:0}
+.srow .lab{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:4px}
+.acts p{margin:0}
+.a-b{position:relative;padding-left:14px;margin-top:4px!important}
+.a-b::before{content:"•";position:absolute;left:2px;color:var(--accent)}
+.a-h{font-weight:700;margin-top:10px!important}
+.acts p:first-child{margin-top:0!important}
+.a-s{position:relative;padding-left:30px;margin-top:3px!important;font-size:14px}
+.a-s::before{content:"–";position:absolute;left:14px;color:var(--muted)}
+.a-q{margin:6px 0 6px 14px!important;padding:8px 12px;border:1px dashed var(--accent);border-radius:8px;background:var(--soft);font-size:14px}
+.mat{padding:12px 16px;border-top:1px solid var(--line);background:var(--bg)}
+.mat .lab{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:4px}
+.mat .acts{font-size:14px}
+.plan-info{margin-bottom:14px}
+.blank{color:var(--muted)}
+@media (min-width:560px){
+  .kv.wide>div{display:grid;grid-template-columns:150px 1fr;gap:12px}
+  .kv.wide dt{margin:0;padding-top:1px}
+  h1{font-size:30px}
+}
+@media (prefers-reduced-motion:no-preference){ .panel{animation:fade .2s ease-out} }
+@keyframes fade{from{opacity:.4}to{opacity:1}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <p class="eyebrow">2026. 10. 26.(월)</p>
+    <h1>무안현경중학교 연구학교 교수·학습 과정안</h1>
+    <p class="sub">국어 · 수학 · 미술 · 보건 4개 교과 교수·학습 과정안</p>
+  </header>
+  <nav class="tabs" role="tablist" aria-label="교과 선택" id="tabs"></nav>
+  <main id="panels"></main>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var LESSONS = [
+{
+  id:"korean", subj:"국어", grade:"3학년", period:"5교시",
+  head:[["단원명","2. 너의 생각, 나의 생각"],["대상","3-1"],["일시","2026. 10. 26.(월) 5교시"],["장소","3-1 교실"],["지도교사","전유진"]],
+  secs:[
+   {t:"수업 설계 의도", b:[
+     {k:"p", v:["국어 교과만의 특성을 살려 진행할 수 있는 양파 프로젝트가 무엇이 있을까? 이 고민을 바탕으로 양파의 ‘겹’을 ‘성장’과 연결 지어 ‘내 안의 한 겹을 찾아서’ 프로젝트 수업을 준비했다. 나무의 성장 기록이 나이테라면, 양파의 성장 기록은 겹이 아닐까. 이러한 관점으로, 자신의 겹이 되어준 경험들을 돌아보며 내면의 감정과 성장의 의미를 발견하도록 하였다. 이 경험을 수필로 풀어내어 한 권의 책으로 묶고, 학우들과 공유하여 서로 공감하고 소통하는 시간을 준비했다. 나아가 학생들의 이야기를 주민센터에 전시하는 등 지역사회와 공유하여 청소년을 향한 이해와 공감의 폭을 넓히고, 학교와 마을이 함께 아이들의 성장을 응원하는 교육 공동체 문화를 조성하고자 하였다."]}
+   ]},
+   {t:"수업 주제와 방법", b:[
+     {k:"kv", v:[["수업 주제","친구의 ‘한 겹’을 찾아 너와 나 이해하기"],["핵심 질문","수필을 통해 서로 공감하고 나를 돌아볼 수 있는가?"]]},
+     {k:"h", v:"수업 방법"},
+     {k:"ul", v:["수필집 배부 및 훑어보기","개별 독서 및 모둠별 대화하기","모둠별 작품 선정 및 질문지 작성하기","작가와 독자로 소통하기","친구의 작품에서 성장의 의미 발견하고 내면화하기"]},
+     {k:"h", v:"수업 자료 및 도구"},
+     {k:"kv", v:[["교사","PPT, 활동지, 수필집"],["학생","활동지, 수필집, 필기도구"],["정리","PPT, 활동지"]]}
+   ]},
+   {t:"수업의 흐름", b:[
+     {k:"h", v:"단원: 2. 너의 생각, 나의 생각"},
+     {k:"flow", v:[
+       {no:"1-2",title:"사물을 통해 의미 발견하기",text:"‘양파’ 관련 다양한 갈래의 글을 감상하며 양파의 ‘겹’을 ‘성장’과 연결 짓기",mat:"활동지, PPT",note:"개별활동"},
+       {no:"3",title:"내 안의 한 겹 발견하기",text:"과거의 경험에서 성장 의미 찾기",mat:"활동지, PPT, 솔라리움 카드",note:"모둠활동"},
+       {no:"4-7",title:"내 안의 한 겹 피우기",text:"수필 쓰기 및 첨삭지도",mat:"활동지, PPT",note:"개별활동"},
+       {no:"8",title:"내 안의 한 겹 저장하기",text:"워드 작업 및 핵심 장면 선정하기",mat:"활동지, 생성형 AI",note:"컴퓨터실"},
+       {no:"9",title:"친구의 ‘한 겹’을 찾아 너와 나 이해하기",text:"수필을 통해 상호 공감하고 나 돌아보기",mat:"수필집, 활동지, PPT",note:"모둠활동",hi:true},
+       {no:"10",title:"함께 성장하기",text:"친구의 수필집에 위로와 감상, 응원의 문구 붙이기",mat:"수필집, 활동지, PPT",note:"모둠활동"},
+       {no:"사후",title:"우리의 한 겹 마을에 펼치기",text:"학교와 마을이 함께하는 교육 공동체 문화 조성",note:"주민센터 연계",sub:"활동"}
+     ]}
+   ]},
+   {t:"O.N.I.O.N 연계 요소", b:[
+     {k:"kv", wide:1, v:[["연계 단계","O·N·I·O·N모형의 Observe(관찰)·Network(연결)·Inquire(탐구)·Organize(정리)·Narrate(표현) 단계를 활동으로 적용"]]},
+     {k:"h", v:"수업 적용 방법"},
+     {k:"ul", v:["다양한 글을 분석하며 양파와 나 연결하기","나의 경험에서 성장의 의미 찾기","나의 성장 경험 정리하기","나의 성장 경험 수필로 표현하기","상호 소통하기"]},
+     {k:"h", v:"기대 역량"},
+     {k:"ul", v:["‘나’에 대해 탐구하고 ‘너’와 소통하며 이해하기","지역사회와 공유하며 교육 공동체 문화 조성하기"]}
+   ]},
+   {t:"본시 교수·학습 과정안", id:"plan", b:[
+     {k:"plan",
+      info:[["일시","2026. 10. 26.(월) 5교시"],["대상","3-1"],["장소","3-1 교실"],["지도교사","전유진"],["단원명","2. 너의 생각, 나의 생각"],["차시","9/10"]],
+      goals:["수필에 담긴 글쓴이의 경험과 의미를 파악할 수 있다.","수필을 통해 상호 소통하며 자신을 성찰할 수 있다."],
+      stages:[
+       {name:"도입",tag:"도입",min:5,rows:[
+         {lab:"인사",a:["상호 인사하기"]},
+         {lab:"전 차시 복습",a:["‘내 안의 한 겹을 찾아서’ 프로젝트 과정 확인하기"]},
+         {lab:"학습 목차 및 목표 제시",a:["학습 목표 안내하기","수필집을 통해 상호 소통하고 성찰할 것을 안내"]}],
+        mat:["PPT","수필집","전교생이 함께 완성한 수필집에 관심을 갖고 적극적으로 참여하도록 지도"]},
+       {name:"진행 · 전개",tag:"전개",min:35,rows:[
+         {lab:"전개",a:["# 활동 1. ‘한 겹’ 발견하기","- 수필집 목차를 확인하며 훑어보기","- 각자 흥미로운 글 하나를 골라 읽기","- 수필의 내용과 표현을 근거로 글쓴이의 경험과 성장 찾기","- 활동지 작성하기",
+                   "# 활동 2. ‘한 겹’ 돋보기","- 각자 읽은 수필을 모둠원에게 소개하기","- 소개를 듣고 함께 읽고 싶은 한 편의 수필 선정하기","- 선정한 글을 모둠원과 함께 읽으며 활동지 작성하기",
+                   "# 활동 3. ‘한 겹 더’ 마음을 묻기","- 선정한 수필의 글쓴이와 질문·답변하기","- 글쓴이의 내면의 생각과 감정 이해하기"]}],
+        mat:["PPT","수필집","활동지","상호 원활한 소통이 이루어지도록 지도"]},
+       {name:"정리 및 평가",tag:"정리",min:5,rows:[
+         {lab:"내용 정리 및 마무리",a:["친구의 한 겹을 통해 나 돌아보며 활동 정리하기","차시 예고 및 인사"]}],
+        mat:["활동지","‘너’의 이야기를 통해 ‘나’를 성찰할 수 있도록 지도"]}
+      ]}
+   ]}
+  ]
+},
+{
+  id:"math", subj:"수학", grade:"1학년", period:"5교시",
+  head:[["단원명","Ⅴ. 평면도형과 입체도형 · 2. 입체도형의 성질 01. 다면체와 회전체"],["대상","1학년"],["일시","2026. 10. 26.(월) 5교시"],["장소","수학실"]],
+  secs:[
+   {t:"수업 설계 의도", b:[
+     {k:"p", v:[
+      "본 수업은 ‘다면체는 무엇일까?’라는 질문에서 출발하여 학생들이 생활 속 사물인 양파 포장 상자를 관찰하고 조작하는 과정에서 다면체의 뜻과 구성 요소를 이해하도록 설계하였다. 학생들이 이미 초등학교에서 학습한 직육면체, 정육면체, 각기둥, 각뿔과 다각형의 개념을 바탕으로, 입체도형을 이루는 면이 다각형인지에 주목하게 한다.",
+      "수업의 맥락으로 지역의 양파와 포장 상자를 활용하는 것은 수학 개념을 교과서 속 정의에만 머무르게 하지 않고 지역의 산업·생활과 연결하기 위함이다. 학생들은 양파가 수확된 뒤 선별·포장·운송되는 과정을 떠올리며 포장 상자가 필요한 이유를 생각하고, 상자의 모양과 구조를 수학적으로 관찰한다. 이를 통해 수학이 지역사회와 일상생활의 문제를 이해하는 데 활용된다는 점을 경험하게 한다.",
+      "교사는 먼저 다각형의 뜻을 확인하여 학생들이 ‘선분으로만 둘러싸인 도형’이라는 조건을 떠올리도록 돕는다. 이어서 입체도형을 관찰할 때 곡면이 포함된 도형과 다각형인 면으로만 둘러싸인 도형을 비교하게 하여 다면체의 정의를 학생 스스로 발견하도록 한다. 이때 단순히 상자의 겉모양만 보고 판단하지 않도록 면·모서리·꼭짓점을 실제로 짚고 세는 조작 활동을 강조한다.",
+      "또한 학생이 관찰한 사실을 말과 표로 정리하고, 다른 학생의 설명과 비교하며 수학적 의사소통 능력을 기르도록 한다. 정답을 빠르게 제시하는 것보다 ‘왜 다면체라고 할 수 있는가?’, ‘어떤 면이 다각형인가?’, ‘면과 모서리, 꼭짓점을 어떻게 구분했는가?’와 같은 질문을 통해 개념 형성 과정을 지원한다.",
+      "수업은 관찰-연결-탐구-정리-표현의 흐름을 갖는 O·N·I·O·N 프로젝트와 연계한다. 지역 소재를 관찰하는 활동에서 시작해 수학적 개념을 탐구하고, 결과를 정리하여 발표하는 과정까지 이어지도록 함으로써 학생 참여 중심의 수업을 구현하고자 한다."]}
+   ]},
+   {t:"수업 주제와 방법", b:[
+     {k:"kv", v:[["수업 주제","양파 포장 상자를 관찰하고 조작하며 다면체의 뜻과 구성 요소인 면·모서리·꼭짓점을 이해하고, 생활 속 입체도형을 수학적으로 설명하기"]]},
+     {k:"h", v:"수업 방법"},
+     {k:"kv", v:[
+       ["실물 중심 탐구","양파와 포장 상자 또는 상자 사진·모형을 제시하여 학생이 직접 관찰하고 면의 모양과 입체의 구조를 확인한다."],
+       ["비교·분류 활동","다각형인 면으로만 둘러싸인 입체도형과 곡면이 포함된 입체도형을 비교하여 다면체의 공통된 조건을 찾는다."],
+       ["협력적 문제 해결","짝 또는 모둠별로 면·모서리·꼭짓점의 개수를 세고 결과를 비교하며, 세는 방법의 차이가 생기면 근거를 들어 조정한다."],
+       ["발문 중심 개념화","‘이 도형의 면은 모두 다각형인가?’, ‘곡면이 하나라도 있으면 다면체인가?’, ‘모서리와 꼭짓점은 어디인가?’ 등의 질문으로 정의를 정교화한다."],
+       ["지역 연계 및 발표","양파의 포장·운송 과정에서 상자의 역할을 생각하고, 관찰한 상자의 입체도형 특징과 수학의 활용을 발표한다."]]}
+   ]},
+   {t:"O.N.I.O.N 연계 요소", b:[
+     {k:"p", v:["O·N·I·O·N 프로젝트의 다섯 구성 요소를 수업의 실제 활동과 연결하여, 지역 소재의 관찰에서 출발해 수학적 탐구와 개념화, 발표까지 이어지도록 한다."]},
+     {k:"cards", v:[
+       {name:"O. Observe (관찰)",f:[["수업에서의 적용","지역의 양파와 포장 상자를 관찰하며 생활 속 입체도형을 발견한다."],["학생 활동","양파 실물·사진과 포장 상자의 모양을 살펴본다. 상자의 면이 평면인지, 어떤 다각형으로 이루어져 있는지 관찰한다."],["핵심 발문","포장 상자의 면이 모두 다각형으로 이루어져 있는가?"]]},
+       {name:"N. Network (연결)",f:[["수업에서의 적용","지역 농업·유통과 수학의 관계를 연결한다."],["학생 활동","양파가 수확·선별·포장·운송되는 과정을 떠올리고, 포장 상자가 필요한 이유와 상자의 형태가 운송에 주는 이점을 이야기한다."],["핵심 발문","양파를 운반할 때 상자를 사용하는 이유는 무엇일까?"]]},
+       {name:"I. Inquire (탐구)",f:[["수업에서의 적용","상자 모형을 직접 살펴보며 다면체의 성질을 탐구한다."],["학생 활동","양파가 수확·선별·포장·운송되는 과정을 떠올리고, 포장 상자가 필요한 이유와 상자의 형태가 운송에 주는 이점을 이야기한다."],["핵심 발문","다면체인지 판단하려면 어떤 부분을 확인해야 할까?"]]},
+       {name:"O. Organize (정리)",f:[["수업에서의 적용","관찰과 탐구 결과를 표로 정리하고 개념화한다."],["학생 활동","모둠별 결과를 표로 정리하도록 안내하고, 다면체의 정의와 구성 요소를 학생의 말로 정리하게 한다."],["핵심 발문","관찰한 입체도형에서 면·모서리·꼭짓점을 어떻게 구분할 수 있을까?"]]},
+       {name:"N. Narrate (표현)",f:[["수업에서의 적용","탐구 결과를 발표하고 지역사회와 수학의 연결을 공유한다."],["학생 활동","학생이 탐구 결과를 짧게 발표하도록 하고, 설명에 수학 용어와 판단 근거가 포함되었는지 피드백한다."],["핵심 발문","양파 포장 상자를 통해 발견한 수학 개념은 무엇인가?"]]}
+     ]}
+   ]},
+   {t:"본시 교수·학습 과정안", id:"plan", b:[
+     {k:"plan",
+      info:[["단원","Ⅴ. 평면도형과 입체도형 / 2. 입체도형의 성질 / 01. 다면체와 회전체"],["차시","12/26"],["교과서","206~207쪽"]],
+      goalLabel:"차시 학습 목표",
+      goals:["양파 포장 상자 속 다면체를 관찰하고 구체적인 모형이나 공학 도구를 이용하여 다면체의 성질을 탐구하고, 이를 설명할 수 있다."],
+      notesLabel:"지도상의 유의점",
+      notes:["초등학교에서 배운 직육면체, 정육면체, 각기둥, 각뿔의 뜻과 성질을 바탕으로 다면체의 뜻을 알게 한다.","다면체의 면이 다각형임을 강조하여 지도한다.","다면체는 그 모양이 볼록인 경우만 다루고, 구체적인 조작물을 통해 지도한다."],
+      stages:[
+       {name:"도입",tag:"도입",min:5,rows:[
+         {lab:"앞 차시 확인",a:["지난 시간에 학습한 내용을 질문하고 설명한다.","- 선수학습 문제를 통해 다각형의 뜻을 알게 한다."]},
+         {lab:"학습 목표 제시",a:["차시 학습 목표를 확인한다."]}]},
+       {name:"전개",tag:"전개",min:30,rows:[
+         {lab:"탐구 학습",a:["# 함께 탐구","- 사물을 다각형인 면으로만 둘러싸인 입체도형과 그렇지 않은 입체도형으로 구분하는 활동을 통해 다면체의 뜻을 알게 한다.","- 양파와 포장 상자를 관찰하고, 생활 속에서 볼 수 있는 상자 모양의 입체도형을 찾아본다."]},
+         {lab:"개념 학습 · 다면체",a:["# 개념 설명 1. 다면체","- 다각형인 면으로만 둘러싸인 입체도형을 다면체라 하고, 다면체를 둘러싸고 있는 다각형을 다각형의 면, 다각형의 변을 다면체의 모서리, 다각형의 꼭짓점을 다면체의 꼭짓점이라고 함을 설명한다.","- 다면체는 둘러싸인 면의 개수에 따라 사면체, 오면체, 육면체, ...라고 함을 설명한다."]},
+         {lab:"문제 풀이",a:["# 문제","- [문제 1]에서 면의 개수를 세어 다면체의 이름을 말할 수 있는지 확인하고, 다면체의 모서리와 꼭짓점의 개수를 각각 구할 수 있는지 확인한다.","- 학생에게 답을 말하게 하고 교사는 보충 설명을 한다."]},
+         {lab:"개념 학습 · 각뿔대",a:["# 개념 설명 2. 각뿔대","- 각뿔을 밑면에 평행한 평면으로 잘라서 생기는 두 다면체 중에서 각뿔이 아닌 쪽의 입체도형을 각뿔대라고 함을 설명한다.","- 각뿔대에서 서로 평행한 두 면을 밑면, 밑면이 아닌 면을 옆면, 두 밑면에 수직인 선분의 길이를 각뿔대의 높이라고 함을 설명한다. 이때 각뿔대의 옆면은 마주 보는 한 쌍의 변이 서로 평행한 사각형이므로 모두 사다리꼴임을 설명한다.","- 각뿔대는 밑면의 모양에 따라 삼각뿔대, 사각뿔대, 오각뿔대, ...라고 함을 설명한다."]},
+         {lab:"문제 풀이",a:["# 문제","- [문제 2]에서 밑면의 모양을 관찰하여 각뿔대의 이름을 말할 수 있는지 확인한다.","- [문제 3]에서 각기둥, 각뿔, 각뿔대를 관찰하여 밑면과 옆면의 모양, 면의 개수를 각각 구할 수 있는지 확인한다.","- 학생에게 답을 말하게 하고 교사는 보충 설명을 한다."]}]},
+       {name:"정리",tag:"정리",min:10,rows:[
+         {lab:"내용 정리",a:["이번 차시 학습 내용 정리"]},
+         {lab:"차시 예고",a:["정다면체"]}]}
+      ]}
+   ]}
+  ]
+},
+{
+  id:"art", subj:"미술", grade:"3학년", period:"6교시",
+  head:[["단원명","3. 미술을 즐기다"],["대상","3학년 (본시 3-1)"],["일시","2026. 10. 26.(월) 6교시"],["장소","미술실"],["지도교사","이문희"]],
+  secs:[
+   {t:"수업 설계 의도", b:[
+     {k:"p", v:["무안의 지역 자원인 양파를 관찰하고 그 특징과 가치를 문자도로 재구성하는 미술 수업입니다. 양파를 단순한 장식 소재로 사용하기보다 실제로 관찰한 둥근 형태, 겹겹의 구조, 껍질의 결, 뿌리와 잎 등을 자신이 선택한 낱말의 의미와 연결하여 표현합니다. 이를 통해 지역 자원을 새로운 시각으로 바라보고 자신의 해석을 시각적으로 전달합니다.","양파와 지역 자료를 관찰하고, 탐구한 뒤 구상을 정리하고 작품으로 표현하도록 이끕니다."]}
+   ]},
+   {t:"수업 주제와 방법", b:[
+     {k:"kv", v:[["수업 주제","양파의 겹과 결로 무안의 가치를 담은 문자도 그리기"],["핵심 질문","“무안 양파의 어떤 특징을 글자와 연결하면 우리가 전하고 싶은 지역의 가치가 드러날까?”"],["수업 방법","관찰과 질문 만들기, 구상 비교, 개별 표현, 짝 피드백으로 진행"]]},
+     {k:"h", v:"수업 자료 및 도구"},
+     {k:"kv", v:[
+       ["교사","문자도 감상 자료, 양파 실물·단면 사진, 출처가 확인된 지역 자료, 화면 구성 예시, 관찰 기록지를 준비한다. 양파 절단은 교사가 사전에 한다."],
+       ["학생","전 차시 활동지와 구상안, 도화지 또는 스케치북, 연필, 지우개, 색연필을 준비한다. 유성펜은 밑그림 확정 후 선택적으로 사용한다."],
+       ["디지털 도구","학교 기기나 인쇄 자료로 지역 자료를 확인한다. 개인 휴대전화가 없어도 동일하게 참여하도록 한다."]]}
+   ]},
+   {t:"수업의 흐름", b:[
+     {k:"h", v:"단원: 3. 미술을 즐기다"},
+     {k:"flow", v:[
+       {no:"1",sub:"차시",title:"전통 문자도의 글자와 그림 관계를 살피고, 양파 실물과 사진에서 모양·선·색·질감을 찾아 기록한다.",mat:"교과서, 활동지",note:"개별활동"},
+       {no:"2",sub:"차시",title:"지역 생산자·기관의 자료 또는 기존 지역 탐방 기록을 읽고 양파가 지역의 생활과 어떻게 연결되는지 알아본다.",mat:"활동지, 개인 휴대전화",note:"개별활동"},
+       {no:"3",sub:"차시",title:"“양파의 겹을 어떤 뜻으로 바꿔 표현할까?” 등 질문을 만들고, 낱말과 특징을 연결한 작품을 구상한다.",mat:"활동지, 개인 휴대전화",note:"개별활동"},
+       {no:"4",sub:"차시",title:"무안·건강·행복 등 낱말을 정하고 관찰, 근거, 표현 의미, 문자 배치, 장식과 색 계획을 정리한다.",mat:"활동지, 개인 휴대전화",note:"개별활동"},
+       {no:"5",sub:"차시",title:"구상에 따라 글자와 양파 요소를 배치하여 밑그림을 그리고, 짝 피드백을 반영하여 수정·채색한다.",mat:"개인 휴대전화",note:"단체활동",hi:true},
+       {no:"6",sub:"차시",title:"글자와 배경의 대비를 고려하여 채색하고 양파의 결과 겹을 표현하여 작품을 마무리한다.",mat:"개인 휴대전화",note:"개별활동"},
+       {no:"7",sub:"차시",title:"작품 설명문을 작성하고 발표·전시하며 지역 자원의 활용 가능성을 나눈다.",note:"단체활동"}
+     ]}
+   ]},
+   {t:"O.N.I.O.N 연계 요소", b:[
+     {k:"h", v:"연계 단계"},
+     {k:"cards", v:[
+       {name:"O – Observe (관찰)",f:[["","무안양파의 생김새, 색, 단면의 결, 껍질의 결을 관찰"]]},
+       {name:"N – Network (연결)",f:[["","지역특산품인 무안 양파의 가치와 학생의 표현할 낱말의 의미를 연결"]]},
+       {name:"I – Inquire (탐구)",f:[["","양파의 특징을 글자의 획, 장식, 배경 문양으로 바꾸면서 주제가 잘 드러나는지 탐색"]]},
+       {name:"O – Organize (정리)",f:[["","화면 구성, 색채 계획, 표현 요소를 정리"]]},
+       {name:"N – Narrate (표현)",f:[["","완성한 문자도 작품과 작품 설명을 통해 생각을 표현"]]}
+     ]},
+     {k:"kv", v:[["수업 적용 방법","양파의 생김새와 색·질감을 관찰하고, 무안 양파의 지역적 의미를 주제 낱말과 연결한 뒤, 문자와 양파 요소의 결합 방법을 탐색하여 최종 구상으로 정리하고 작품과 설명으로 표현한다."]]},
+     {k:"h", v:"기대 역량"},
+     {k:"kv", v:[
+       ["지역 관찰 및 이해","무안 양파의 형태, 색, 질감, 단면의 특징을 관찰하고 지역적 의미를 해석하여 문자도를 재구성하는 과정을 통해 지역 관찰하고 이해하는 능력을 기름"],
+       ["질문 생성 및 탐구 수행","문자와 이미지를 결합하는 방법을 스스로 질문하고 탐색"],
+       ["자료 분석 및 의미 구성","화면 구성, 표현 재료, 색채 계획을 조절하면서 시각 정보를 분석하고 조형 원리에 따라 재구성하는 능력"],
+       ["표현 및 실천 확장","작품의 의도를 설명하고 감상 의견을 나눔"]]},
+     {k:"kv", v:[["활용 TIP!","양파를 단순한 그림 소재로만 다루지 않고, 무안 지역의 상징성과 연결하여 표현하도록 지도한다. 글자가 읽히는 문자도의 기본 형식을 유지하면서도, 양파의 겹·뿌리·잎·단면 무늬를 선택적으로 활용해 표현하게 한다. 학생이 직접 만든 질문과 관찰 기록을 바탕으로 작품을 구상하도록 하며, AI 자료나 예시 작품은 아이디어를 넓히는 참고 자료로만 활용하도록 안내한다."]]}
+   ]},
+   {t:"본시 교수·학습 과정안", id:"plan", b:[
+     {k:"plan",
+      info:[["일시","2026. 10. 26.(월) 6교시"],["대상","3-1"],["장소","미술실"],["지도교사","이문희"],["단원명","3. 미술을 즐기다"],["차시","5/7"]],
+      goals:["양파의 관찰 특징과 선택한 낱말의 의미를 연결하여 표현 의도를 설명할 수 있다.","문자 안에 양파 관련 무늬와 장식 요소를 적절히 배치하고 채색할 수 있다."],
+      stages:[
+       {name:"도입",tag:"도입",min:5,rows:[
+         {lab:"학습 목표 제시",a:["인사 및 출석 확인하기","학습목표 인지하고 동기유발하기","화면 구성 기준을 제시하기","- 글자가 잘 보이는가","- 양파의 특징이 드러나는가","- 화면이 균형 있는가"]}],
+        mat:["참고작품"]},
+       {name:"전개",tag:"전개",min:35,rows:[
+         {lab:"개인 활동",a:["도화지에 중심 글자 배치하기","표현 하기","- 도화지에 중심 글자를 배치한다.","- 글자 내부와 주변에 양파 장식을 구상한다.","- 반복, 균형, 강조, 여백을 생각하고 자신만의 개성이 돋보이게 창의적으로 표현한다.","- 디자인의 조건 심미성, 독창성을 생각하면서 채색을 한다.","수정 보완 하기","- 글자의 크기, 장식의 위치, 여백이나 선을 조절"]}],
+        mat:["문자도 관련 자료","양파 모양, 단면 관련 자료","스케치북, 유성펜, 색연필, 개인 핸드폰"]},
+       {name:"정리",tag:"정리",min:5,rows:[
+         {lab:"정리 및 마무리",a:["주변정리 – 실기 시간에 사용한 용구들을 정리한다.","문자도의 특징을 살릴 수 있는 표현 방법 검색해오기"]}],
+        mat:["차시예고"]}
+      ]}
+   ]},
+   {t:"활동지", b:[
+     {k:"worksheet", title:"무안 양파 문자도 활동지", fields:"학년·반: ________   번호: ______   이름: ______________",
+      v:["# 1. 표현할 낱말과 의미를 정해 봅시다.","표현할 낱말을 선택합니다. □ 무안  □ 건강  □ 행복  □ 다른 낱말: ______________","내가 이 낱말을 선택한 까닭은 ______________________________입니다.","양파의 ______________을/를 활용하여 ______________이라는 의미를 표현하겠습니다.",
+          "# 2. 양파의 특징을 찾아봅시다.","양파 실물이나 사진을 관찰하고, 실제로 관찰한 특징을 기록합니다.","모양과 선: ______________________________","색과 질감: ______________________________","글자에 활용하고 싶은 부분과 그 까닭: ______________________________",
+          "# 3. 양파의 특징을 살려 낱말을 그려 봅시다."]}
+   ]}
+  ]
+},
+{
+  id:"health", subj:"보건", grade:"1학년", period:"6교시",
+  head:[["단원명","Ⅳ. 건강 안전과 응급 처치"],["대상","1학년 (본시 1-1)"],["일시","2026. 10. 26.(월) 6교시"],["장소","1-1교실"],["지도교사","최주영"]],
+  secs:[
+   {t:"수업 설계 의도", b:[
+     {k:"p", v:[
+      "본 수업은 지역의 대표 특산물인 무안 양파를 보건교육의 학습 자원으로 활용하여, 학생들이 지역 자원의 건강학적 가치를 탐구하고 디지털 환경에서 건강정보를 비판적으로 수용하는 역량을 기르는 데 목적이 있다. 학생들은 일상생활에서 다양한 환경호르몬에 노출될 수 있으며, 인터넷과 SNS를 통해 특정 식품이 유해물질을 제거하거나 질병을 예방한다는 건강정보를 쉽게 접한다. 그러나 이러한 정보에는 과학적 사실과 과장된 주장이 혼재되어 있어, 건강정보의 신뢰성을 판단하고 올바른 건강행동을 선택하는 능력이 요구된다.",
+      "이에 본 수업에서는 전 차시에 학습한 환경호르몬의 건강영향을 바탕으로, ‘양파가 환경호르몬을 제거할 수 있을까?’라는 탐구 질문을 제시한다. 학생들은 생성형 AI를 활용하여 양파의 퀘르세틴 성분과 항산화 작용을 탐색하고, 환경호르몬과 산화 스트레스의 관계를 이해한다. 나아가 AI가 생성한 건강 광고 속 과학적 사실과 과장된 표현을 구분하고, 공신력 있는 자료를 통해 정보를 검증한 후 올바른 건강정보로 재구성한다.",
+      "특히 본 수업은 연구학교의 O·N·I·O·N 탐구 모형을 적용하여 관찰(Observe)–연결(Network)–탐구(Inquire)–정리(Organize)–표현(Narrate)의 과정을 학생 주도적으로 경험하도록 설계하였다. 이를 통해 지역 특산물에 대한 이해를 건강한 식생활과 연결하고, AI를 단순한 정보 제공 도구가 아닌 비판적 사고와 문제해결을 지원하는 탐구 도구로 활용하고자 한다.",
+      "궁극적으로 학생들이 지역 자원의 가치를 새롭게 발견하는 동시에, 과학적 근거에 기반하여 건강정보를 판단하고 책임 있는 건강 의사결정을 실천하는 역량을 함양하도록 하는 데 중점을 두었다."]}
+   ]},
+   {t:"수업 주제와 방법", b:[
+     {k:"kv", v:[["수업 주제","양파의 항산화 성분 탐구를 통한 AI 건강정보 검증 및 올바른 건강정보 제작"],["핵심 질문","양파는 환경호르몬으로부터 우리 몸을 보호할 수 있을까? / AI가 알려주는 건강정보는 모두 믿어도 될까?"]]},
+     {k:"h", v:"수업 방법"},
+     {k:"p", v:["생성형 AI 기반 탐구학습 및 모둠 협력학습을 활용한 건강정보 검증 프로젝트","전 차시에서 학습한 환경호르몬의 개념과 건강영향을 바탕으로, 양파의 항산화 성분에 관한 탐구 질문을 생성하고 AI를 활용하여 관련 정보를 탐색한다. 이후 모둠별로 AI가 생성한 양파 건강 광고를 분석하여 과학적 사실, 추가 검증이 필요한 정보, 과장된 표현을 구분한다. 학생들은 식품의약품안전처 등 공신력 있는 기관의 자료를 활용하여 AI 답변의 신뢰성을 검증하고, 발견한 오류를 수정하는 과정을 거친다. 최종적으로 검증한 정보를 바탕으로 무안 양파의 건강학적 가치를 알리는 AI 건강정보 홍보물을 제작하고 모둠별 결과를 공유한다. 이를 통해 학생들이 질문 생성, 정보 탐색, 근거 검증, 정보 재구성 및 표현에 이르는 탐구 과정을 주도적으로 수행하도록 한다."]},
+     {k:"h", v:"수업 자료 및 도구"},
+     {k:"kv", v:[["교사","PPT, '양파 퀘르세틴 건강홍보물' AI활용 이미지"],["학생","활동지, 필기도구, 1인 1기기(AI 생성형: 제미나이 활용)"],["정리","활동지"]]}
+   ]},
+   {t:"수업의 흐름", b:[
+     {k:"h", v:"단원: Ⅳ. 건강 안전과 응급처치"},
+     {k:"flow", v:[
+       {no:"1",sub:"차시",title:"환경호르몬의 정의 및 우리몸에 미치는 영향",mat:"활동지, 생성형 AI, AI 활용 제작 앱",note:"모둠활동"},
+       {no:"2",sub:"차시",title:"무안 양파의 항산화 성분 탐구를 통한 AI 건강정보 검증 및 올바른 건강정보 제작 1",mat:"활동지, 생성형 AI, ZEP QUIZ",note:"모둠활동"},
+       {no:"3",sub:"차시",title:"무안 양파의 항산화 성분 탐구를 통한 AI 건강정보 검증 및 올바른 건강정보 제작 2",mat:"활동지, 생성형 AI",note:"모둠활동",hi:true}
+     ]}
+   ]},
+   {t:"O.N.I.O.N 연계 요소", b:[
+     {k:"h", v:"연계 단계"},
+     {k:"cards", v:[
+       {name:"O – Observe (관찰)",f:[["","환경호르몬 관련 건강정보와 양파 건강 광고를 관찰하고, 과학적 사실 여부에 대한 의문 발견"]]},
+       {name:"N – Network (연결)",f:[["","전 차시 환경호르몬 학습 내용을 지역 특산물인 무안 양파의 영양적 가치 및 건강한 식생활과 연결"]]},
+       {name:"I – Inquire (탐구)",f:[["","AI를 활용하여 퀘르세틴의 항산화 작용과 환경호르몬, 산화 스트레스의 관계를 탐구하고, 건강정보의 과학적 근거 검증"]]},
+       {name:"O – Organize (정리)",f:[["","AI 건강정보를 사실, 과장, 확인 필요 정보로 분류하고, 공신력 있는 자료를 바탕으로 올바른 건강정보 재구성"]]},
+       {name:"N – Narrate (표현)",f:[["","검증된 정보를 활용하여 무안 양파 건강 홍보물을 제작하고, 모둠별 결과 공유 및 건강한 식생활 실천 방안 발표"]]}
+     ]},
+     {k:"kv", v:[["수업 적용 방법","환경호르몬과 양파의 관계 예측, 모둠별 AI 탐구 질문 해결, 건강정보의 과학적 근거 검증, AI 활용 건강홍보물 제작 및 발표"]]},
+     {k:"h", v:"기대 역량"},
+     {k:"kv", v:[
+       ["지역 관찰 및 이해","무안 양파의 영양적 가치와 건강한 식생활의 연관성 이해"],
+       ["질문 생성 및 탐구 수행","건강정보에 대한 탐구 질문 생성 및 AI 활용 정보 탐색"],
+       ["자료 분석 및 의미 구성","건강정보의 신뢰성 판단 및 과학적 근거에 기반한 정보 재구성"],
+       ["표현 및 실천 확장","올바른 건강정보 홍보물 제작 및 건강한 생활습관 실천 의지 함양"]]},
+     {k:"kv", v:[["활용 TIP!","AI를 정답을 제공하는 도구가 아닌 건강정보를 탐구하고 검증하는 도구로 활용한다. 학생들이 AI가 생성한 정보의 사실과 과장을 스스로 구분하고, 공신력 있는 자료와 비교·검증하도록 지도한다. 특히 양파의 항산화 작용과 환경호르몬 제거 효과를 혼동하지 않도록 유의하며, AI 활용 시 개인정보 보호와 비판적 수용의 중요성을 강조한다."]]}
+   ]},
+   {t:"본시 교수·학습 과정안", id:"plan", b:[
+     {k:"plan",
+      info:[["일시","2026. 10. 26.(월) 6교시"],["대상","1-1"],["장소","1-1반"],["지도교사","최주영"],["단원명","Ⅳ. 건강 안전과 응급처치"],["차시","3/3"]],
+      goals:["환경호르몬과 산화스트레스의 관계를 이해하고, 양파의 퀘르세틴의 역할을 설명할 수 있다.","AI가 제공하는 건강정보에서 사실, 과장, 확인 필요정보를 구분하여 적절한 건강정보를 만들 수 있다."],
+      stages:[
+       {name:"도입",tag:"도입",min:5,rows:[
+         {lab:"인사",a:["인사 및 출석 확인","- 교실 분위기 정돈 및 수업 시작"]},
+         {lab:"학습 목차 및 목표 제시",a:["본시 학습 목차 및 목표 제시","- 환경 호르몬과 산화스트레스의 관계를 이해하고, 양파의 퀘르세틴의 역할을 설명할 수 있다.","- AI가 제공하는 건강정보에서 사실, 과장, 확인 필요정보를 구분하여 적절한 건강정보를 만들 수 있다."]}],
+        mat:["학습목표를 학생들이 직접 소리내어 읽도록 한다."]},
+       {name:"진행 · 전개",tag:"전개",min:35,rows:[
+         {lab:"전개",a:["# 전 차시 복습 및 활동 상기","# AI 양파 탐정단 활동","- 교사가 제시한 AI로 만든 광고를 분석한다. (허위정보, 과장된 표현을 찾아 학습지에 적기)","- 허위정보, 과장된 표현을 직접 식약청과 정보검색등 공신력 있는 자료를 확인하여 표현을 고쳐본다.","- AI를 활용하여 모둠별로 직접 건강홍보물을 만들어본다.","> 프롬프트: “양파가 환경호르몬으로부터 우리 몸을 보호한다는 내용의 건강 홍보문을 만들어줘”","- AI로 직접 만든 건강홍보물에서 잘못된 정보나 과장된 정보를 찾아 올바른 표현법으로 AI를 활용하여 고치도록 한다.",
+                   "# 모둠별 AI활용 제작 건강홍보물 공유","- 모둠별로 올바른 표현법으로 고쳐진 완성된 AI 건강정보 홍보물을 공유한다."]}],
+        mat:["# ppt 활용","- ppt를 활용하여 학생들의 집중력을 높인다.","# AI활용 규칙","- 학생들이 이해할 수 있게 쉽게 사용법에 대해 설명한다."]},
+       {name:"정리 및 평가",tag:"정리",min:5,rows:[
+         {lab:"내용 정리 및 마무리",a:["# 학습지 정리","- 학습지를 정리하며 배운내용을 상기한다.","# 다음차시 안내 및 마무리 인사하기"]}],
+        mat:["다음 차시 안내"]}
+      ]}
+   ]}
+  ]
+}
+];
+
+function el(tag, cls, text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+
+function acts(list){
+  var box=el("div","acts");
+  list.forEach(function(s){
+    var d;
+    if(s.indexOf("# ")===0) d=el("p","a-h",s.slice(2));
+    else if(s.indexOf("- ")===0) d=el("p","a-s",s.slice(2));
+    else if(s.indexOf("> ")===0) d=el("p","a-q",s.slice(2));
+    else d=el("p","a-b",s);
+    box.appendChild(d);
+  });
+  return box;
+}
+
+function kv(items, wide){
+  var dl=el("dl","kv"+(wide?" wide":""));
+  items.forEach(function(p){
+    var d=el("div"); d.appendChild(el("dt",null,p[0])); d.appendChild(el("dd",null,p[1])); dl.appendChild(d);
+  });
+  return dl;
+}
+
+function block(b){
+  var k=b.k, out;
+  if(k==="p"){
+    out=el("div","card");
+    b.v.forEach(function(t){ out.appendChild(el("p","txt",t)); });
+  } else if(k==="h"){
+    out=el("h4","sh",b.v);
+  } else if(k==="ul"){
+    out=el("div","card"); var ul=el("ul","list");
+    b.v.forEach(function(t){ ul.appendChild(el("li",null,t)); }); out.appendChild(ul);
+  } else if(k==="kv"){
+    out=el("div","card"); out.appendChild(kv(b.v, b.wide));
+  } else if(k==="cards"){
+    out=el("div","stack");
+    b.v.forEach(function(c){
+      var card=el("div","card step"); card.appendChild(el("h5",null,c.name));
+      var named=c.f.some(function(f){return f[0];});
+      if(named) card.appendChild(kv(c.f)); else card.appendChild(el("p","txt",c.f[0][1]));
+      out.appendChild(card);
+    });
+  } else if(k==="flow"){
+    out=el("div","flow");
+    b.v.forEach(function(r){
+      var row=el("div","row"+(r.hi?" hi":""));
+      var n=el("div","no2",r.no); n.appendChild(el("small",null,r.sub||"차시")); row.appendChild(n);
+      var main=el("div"); var h=el("h5",null,r.title);
+      if(r.hi) h.appendChild(el("span","tag","본시"));
+      main.appendChild(h);
+      if(r.text) main.appendChild(el("p",null,r.text));
+      var chips=el("div","chips");
+      if(r.mat) chips.appendChild(el("span","chip","자료 · "+r.mat));
+      if(r.note) chips.appendChild(el("span","chip",r.note));
+      if(chips.children.length) main.appendChild(chips);
+      row.appendChild(main); out.appendChild(row);
+    });
+  } else if(k==="worksheet"){
+    out=el("div","card"); out.appendChild(el("h4","sh",b.title));
+    out.appendChild(el("p","txt blank",b.fields));
+    out.appendChild(acts(b.v));
+  } else if(k==="plan"){
+    out=el("div","plan");
+    var info=el("div","card plan-info"); info.appendChild(kv(b.info,true)); out.appendChild(info);
+    var g=el("div","card plan-info"); g.appendChild(el("h4","sh",b.goalLabel||"학습목표"));
+    var gl=el("ul","list"); b.goals.forEach(function(t){ gl.appendChild(el("li",null,t)); }); g.appendChild(gl);
+    if(b.notes){ g.appendChild(el("h4","sh",b.notesLabel)); var nl=el("ul","list"); b.notes.forEach(function(t){ nl.appendChild(el("li",null,t)); }); g.appendChild(nl); }
+    out.appendChild(g);
+    var total=b.stages.reduce(function(s,x){return s+x.min;},0);
+    var bar=el("div","timebar"); bar.setAttribute("role","img"); bar.setAttribute("aria-label","수업 시간 배분 "+total+"분");
+    b.stages.forEach(function(s){ var d=el("div"); d.style.flex=String(s.min)+" 1 0"; d.appendChild(el("b",null,s.tag)); d.appendChild(document.createTextNode(s.min+"분")); bar.appendChild(d); });
+    out.appendChild(bar);
+    b.stages.forEach(function(s){
+      var st=el("div","stage"); var h=el("h4"); h.appendChild(el("span",null,s.name)); h.appendChild(el("span",null,s.min+"분")); st.appendChild(h);
+      s.rows.forEach(function(r){ var sr=el("div","srow"); sr.appendChild(el("div","lab",r.lab)); sr.appendChild(acts(r.a)); st.appendChild(sr); });
+      if(s.mat){ var m=el("div","mat"); m.appendChild(el("div","lab","자료 및 유의점")); m.appendChild(acts(s.mat.map(function(t){ return (t.indexOf("# ")===0||t.indexOf("- ")===0)?t:t; }))); st.appendChild(m); }
+      out.appendChild(st);
+    });
+  }
+  return out;
+}
+
+var tabs=document.getElementById("tabs"), panels=document.getElementById("panels");
+var tabEls={}, panelEls={};
+
+LESSONS.forEach(function(L, i){
+  var btn=el("button"); btn.type="button"; btn.id="tab-"+L.id; btn.setAttribute("role","tab"); btn.setAttribute("aria-controls","panel-"+L.id);
+  btn.appendChild(el("b",null,L.subj)); btn.appendChild(el("span",null,L.period+" · "+L.grade));
+  btn.addEventListener("click", function(){ show(L.id, true); });
+  tabs.appendChild(btn); tabEls[L.id]=btn;
+
+  var p=el("section","panel"); p.id="panel-"+L.id; p.setAttribute("role","tabpanel"); p.setAttribute("aria-labelledby","tab-"+L.id); p.hidden=true;
+  var head=el("div","lesson-head"); head.appendChild(el("h2","subj",L.subj+"과 교수·학습 과정안"));
+  var dl=el("dl","meta"); L.head.forEach(function(r){ dl.appendChild(el("dt",null,r[0])); dl.appendChild(el("dd",null,r[1])); }); head.appendChild(dl);
+  var jump=el("button","jump","본시 과정안으로 이동 ↓"); jump.type="button";
+  jump.addEventListener("click", function(){ var t=document.getElementById("plan-"+L.id); if(t) t.scrollIntoView({behavior:"smooth",block:"start"}); });
+  head.appendChild(jump); p.appendChild(head);
+  L.secs.forEach(function(s, n){
+    var sec=el("section","sec"); if(s.id==="plan") sec.id="plan-"+L.id;
+    var h=el("h3"); h.appendChild(el("span","no",String(n+1))); h.appendChild(el("span",null,s.t)); sec.appendChild(h);
+    var st=el("div","stack"); s.b.forEach(function(b){ st.appendChild(block(b)); }); sec.appendChild(st);
+    p.appendChild(sec);
+  });
+  panels.appendChild(p); panelEls[L.id]=p;
+});
+
+function show(id, update){
+  if(!panelEls[id]) id="korean";
+  LESSONS.forEach(function(L){
+    var on=L.id===id; panelEls[L.id].hidden=!on;
+    tabEls[L.id].setAttribute("aria-selected", on?"true":"false"); tabEls[L.id].tabIndex=on?0:-1;
+  });
+  if(update){ try{ history.replaceState(null,"","#"+id); }catch(e){ try{ location.hash=id; }catch(e2){} } window.scrollTo(0,0); }
+}
+tabs.addEventListener("keydown", function(e){
+  var ids=LESSONS.map(function(L){return L.id;}); var cur=ids.filter(function(id){return tabEls[id].getAttribute("aria-selected")==="true";})[0];
+  var i=ids.indexOf(cur); if(e.key==="ArrowRight") i=(i+1)%ids.length; else if(e.key==="ArrowLeft") i=(ids.length+i-1)%ids.length; else return;
+  show(ids[i], true); tabEls[ids[i]].focus(); e.preventDefault();
+});
+var start="korean"; try{ start=(location.hash||"").replace("#","")||"korean"; }catch(e){}
+show(start,false);
+})();
+</script>
+</body>
+</html>
